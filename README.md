@@ -120,7 +120,6 @@ local function handleAttack(input, processedByUI)
 end
 
 
--- I personally handle all connections by adding them into a dictionary if I'm planning on disconnecting them in the future
 
 
 -- Prevents clogging up global scope
@@ -133,6 +132,7 @@ do
 	warn(z)
 end
 
-
-UserInputService.InputBegan:Connect(handleAttack)
+-- I personally handle all connections by adding them into a dictionary if I'm planning on disconnecting them in the future
+-- usually takes on the same name as the sub-routine it connects to
+connections["HandleAttack"] = UserInputService.InputBegan:Connect(handleAttack)
 ```
